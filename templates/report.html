@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+	</link>
+	<style>
+		.title {
+			display: grid;
+			place-items: center;
+			color: black;
+		}
+
+		.form {
+			margin: auto;
+			display: grid;
+			text-align: center;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.menu {
+			border: 3px solid black;
+			text-align: center;
+			padding: 15px 0;
+			margin: 10px;
+			color: black;
+			background: white;
+			border-radius: 10px;
+			text-decoration: none;
+			font-weight: bold;
+			vertical-align: middle
+		}
+
+		.menu:hover {
+			color: white;
+			background: black;
+			text-decoration: none;
+		}
+
+		.info {
+			display: grid;
+			padding-left: 100px;
+			grid-auto-rows: minmax(90px, auto);
+			gap: 5px;
+		}
+
+		.center {
+			width: 90%;
+			text-align: left;
+			border-bottom: 2px solid silver;
+			font-size: medium;
+		}
+
+		.apply {
+			border: 2px solid black;
+			text-align: right;
+			padding: 3px;
+			margin: 1px;
+			color: black;
+			background: white;
+			border-radius: 10px;
+			text-decoration: none;
+			font-size: small;
+		}
+
+		.apply:hover {
+			color: white;
+			background: black;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 class='title'><a href="/" style="color:black;">Remote Jobs</a></h1>
+	<form action="" class="form">
+		<h3 class='menu'>{{resultNumber}} {{searchingBy}} has found</h3>
+		<a href="/export?word={{searchingBy}}" class='menu'>Export to CSV</a>
+		<a href="/" class='menu'>
+			<- Go back</a>
+	</form>
+	<form action="" style="margin:auto;">
+		<div class='info'>
+			{%for job in jobs%}
+			<div class='center'>
+				<strong>
+            <span>{{job[0]}}</span><br>
+            <span>{{job[1]}}</span><br>
+            <span><a href="{{job[2]}}" target="_blank" class="apply">APPLY</a></span>
+          </strong>
+        </div> 
+      {%endfor%}
+      
+    </div>
+  </form>
+</body>
+
+</html>

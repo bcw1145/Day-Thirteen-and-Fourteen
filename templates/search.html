@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Remote Jobs</title>
+	<style>
+		.title {
+			display: grid;
+			place-items: center;
+		}
+
+		.orderby {
+			text-align: center;
+			font-size: x-large;
+		}
+
+		.info {
+			display: grid;
+			text-align: left;
+			margin: auto;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			grid-auto-rows: minmax(20px, auto);
+			gap: 0px;
+			width: 70%;
+		}
+
+		.recommend {
+			display: inline-grid;
+			text-align: center;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		.keyword {
+			border: 3px solid black;
+			text-align: center;
+			padding: 15px 0;
+			margin: 10px;
+			color: black;
+			background: white;
+			border-radius: 10px;
+			text-decoration: none;
+		}
+
+		.keyword:hover {
+			color: white;
+			background: black;
+			text-decoration: none;
+		}
+	</style>
+	<link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet">
+	</link>
+</head>
+
+<body>
+	<h1 class="title">Remote Jobs</h1>
+	<form class="info" action="/search" method="GET">
+		Search by terms:
+		<input placeholder='i.e python' required name='word'/>
+      <button style="background:black; color:white; border: white">Find My Job</button><br>
+
+    </form>
+    <form action="" class="info">
+      <p class="orderby"><strong>Keyword recommend</strong></p> 
+      <div class="recommend">
+        {% for keyword in keywords %}
+          <a href="/search?word={{keyword}}" class="keyword">{{keyword}}</a> 
+        {% endfor %}
+      </div>
+      <div style="text-align: right; font-size:5px">ver-calculater</div>
+      <div style="text-align: right; font-size:5px">made by: bcw1145 "simple is the best"</div>
+    </form>
+  </body>
+</html>
